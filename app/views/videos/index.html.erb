@@ -1,0 +1,5 @@
+All topic <%= @topic.title.pluralize%> videos:<br/>
+<% @topic.videos.all.each do |topic_video| %>
+    <%= topic_video.title %>
+    <%= topic_video.caption %>
+<% end %>
