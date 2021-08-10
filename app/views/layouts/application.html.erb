@@ -13,10 +13,10 @@
     <main>
       <nav>
         <ul>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Login", login_path %></li>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+          <li><%= link_to "Logout", logout_path %></li>
         </ul>
       </nav>  
       <%= yield %>
