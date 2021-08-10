@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
 
     before_action :find_course, only: [:show]
     def index
-        @course = Course.all
+        @courses = Course.all
     end
 
     def show
@@ -11,6 +11,6 @@ class CoursesController < ApplicationController
     private 
 
     def find_course
-        @course = Course.find(params[:id])
+        @course = Course.friendly.find(params[:id])
     end
 end
