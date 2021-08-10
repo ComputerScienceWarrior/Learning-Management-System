@@ -1,0 +1,16 @@
+<%= form_for @user do |f| %>
+    <% if @user && @user.errors.any? %>
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    <% end %>
+    <%= f.text_field :first_name, id: "first_name", placeholder: "Enter first Name" %><br/><br/>
+    <%= f.text_field :last_name, placeholder: "Enter last name" %><br/><br/>
+    <%= f.text_field :username, placeholder: "Create a username" %><br/><br/>
+    <%= f.text_field :password, type: "password", placeholder: "Create a password" %><br/><br/>
+    <%= f.text_field :password_confirmation, type: "password", placeholder: "Confirm password" %><br/><br/>
+    <%= f.text_field :email, placeholder: "example@gmail.com" %><br/><br/>
+    <%= f.submit "Create User" %>
+<% end %>
