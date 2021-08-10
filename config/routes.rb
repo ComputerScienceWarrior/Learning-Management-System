@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root "static#home"
   get "/about", to: "static#about"
   get "/settings", to: "static#settings"
+
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
+  get "logout", to: "sessions#destroy"
 
   resources :users, only: [:show, :new, :create, :edit, :update, :destroy]
 
