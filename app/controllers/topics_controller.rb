@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
 
-    before_action :find_topic, only: [:show]
+    before_action :find_course_and_topic, only: [:show]
     def index
         @topic = Topic.all
     end
