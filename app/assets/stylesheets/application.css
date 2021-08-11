@@ -38,3 +38,9 @@
 .course-card #summary{
     padding: 10px 10px 10px 0;
 }
+
+.video-container{
+    border: solid black 1px;
+    width: fit-content;
+    padding: 15px;
+}
