@@ -1,1 +1,6 @@
-<%= @course.title %>
+<%= @course.title %><br/><br/>
+<label>All Courses:</label><br/><br/>
+
+<% @course.topics.all.each do |course_topic| %>
+    <%= link_to course_topic.title, course_topic_path(@course, course_topic) %>
+<% end %>
