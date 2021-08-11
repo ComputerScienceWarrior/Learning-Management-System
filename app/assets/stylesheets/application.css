@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+#courses-container{
+    border: solid 1px black;
+    padding: 10px;
+}
+
+.course-card{
+    border: solid 1px black;
+    width: 200px;
+    padding: 15px;
+}
+
+.course-card #summary-label{
+    text-decoration: underline;
+}
+
+.course-card #summary{
+    padding: 10px 10px 10px 0;
+}
