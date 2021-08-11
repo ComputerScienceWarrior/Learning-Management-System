@@ -1,2 +1,2 @@
-<%= @topic.title %><br/>
-Topics title: <%= @topic.course.title %>
+Topic title: <%= @topic.title %><br/>
+Topic's course: <%= link_to @course.title, course_path(@course) %>
