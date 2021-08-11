@@ -14,7 +14,7 @@
       <nav>
         <ul>
           <li><%= link_to "Home", root_path %></li>
-          
+          <li><%= link_to "View Courses", courses_path %></li>
           <% if is_logged_in? %>
             <li><%= link_to "Logout", logout_path %></li>
             <li>Hello, <%= current_user.full_name %>.</li>
