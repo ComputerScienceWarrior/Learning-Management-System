@@ -1,2 +1,7 @@
-class Api::V1::CoursesController < ApplicationController
+module Api
+    module V1
+        class CoursesController < ApplicationController
+            
+        end
+    end
 end
