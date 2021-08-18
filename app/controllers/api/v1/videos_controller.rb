@@ -4,7 +4,7 @@ module Api
             before_action :find_video, only: [:show, :update, :destroy]
 
             def index
-                @videos = video.all
+                @videos = Video.all
                 render json: VideoSerializer.new(@videos).serialized_json
             end
 
@@ -13,7 +13,7 @@ module Api
             end
 
             def create
-                @video = video.new(video_params)
+                @video = Video.new(video_params)
                 if @video.save
                     render json: VideoSerializer.new(@video).serialized_json
                 else 
