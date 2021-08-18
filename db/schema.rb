@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_11_193536) do
+ActiveRecord::Schema.define(version: 2021_08_18_181001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,10 +39,11 @@ ActiveRecord::Schema.define(version: 2021_08_11_193536) do
   create_table "topics", force: :cascade do |t|
     t.text "title"
     t.text "summary"
-    t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
+    t.bigint "course_id", null: false
+    t.index ["course_id"], name: "index_topics_on_course_id"
     t.index ["slug"], name: "index_topics_on_slug", unique: true
   end
 
@@ -67,7 +68,10 @@ ActiveRecord::Schema.define(version: 2021_08_11_193536) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
-    t.integer "topic_id"
+    t.bigint "topic_id", null: false
+    t.index ["topic_id"], name: "index_videos_on_topic_id"
   end
 
+  add_foreign_key "topics", "courses"
+  add_foreign_key "videos", "topics"
 end

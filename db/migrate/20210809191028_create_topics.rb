@@ -3,7 +3,6 @@ class CreateTopics < ActiveRecord::Migration[6.0]
     create_table :topics do |t|
       t.text :title
       t.text :summary
-      t.integer :course_id
 
       t.timestamps
     end

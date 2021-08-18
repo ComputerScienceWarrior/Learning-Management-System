@@ -6,7 +6,6 @@ class CreateVideos < ActiveRecord::Migration[6.0]
       t.text :summary
       t.text :video_url
       t.text :thumbnail_url
-      t.integer :course_id
 
       t.timestamps
     end
