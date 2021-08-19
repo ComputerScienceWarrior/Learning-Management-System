@@ -10,7 +10,7 @@ module Api
             end
 
             def show
-                render json: @topics, include: :videos
+                render json: @topic, include: :videos
             end
 
             def create
