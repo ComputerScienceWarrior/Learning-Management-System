@@ -6,17 +6,17 @@ module Api
 
             def index
                 @users = User.all
-                render json: UserSerializer.new(@users).serialized_json
+                render json: @users
             end
 
             def show
-                render json: UserSerializer.new(@user).serialized_json
+                render json: @user
             end
 
             def create
                 @user = User.new(user_params)
                 if @user.save
-                    render json: UserSerializer.new(@user).serialized_json
+                    render json: @user
                 else 
                     render json: { error: @user.errors.messages }, status: 422
                 end
@@ -24,7 +24,7 @@ module Api
 
             def update
                 if @user.update
-                    render json: UserSerializer.new(@user).serialized_json
+                    render json: @user
                 else 
                     render json: { error: @user.errors.messages }, status: 422
                 end
