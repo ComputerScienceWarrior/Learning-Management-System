@@ -16,7 +16,7 @@ module Api
             def create
                 @topic = Topic.new(topic_params)
                 if @topic.save
-                    render json: @topics, include: :videos
+                    render json: @topic, include: :videos
                 else 
                     render json: { error: @topic.errors.messages }, status: 422
                 end
