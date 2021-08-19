@@ -10,11 +10,11 @@ module Api
             end
 
             def show
-                render json: TopicSerializer.new(@topic, options).serialized_json
+                render json: TopicSerializer.new(@topic).serialized_json
             end
 
             def create
-                @topic = Topic.new(topic_params, options)
+                @topic = Topic.new(topic_params)
                 if @topic.save
                     render json: TopicSerializer.new(@topic).serialized_json
                 else 
@@ -24,7 +24,7 @@ module Api
 
             def update
                 if @topic.update
-                    render json: TopicSerializer.new(@topic, options).serialized_json
+                    render json: TopicSerializer.new(@topic).serialized_json
                 else 
                     render json: { error: @topic.errors.messages }, status: 422
                 end
@@ -46,10 +46,6 @@ module Api
 
             def topic_params
                 params.require(:topic).permit(:title, :summary, :course_id, :slug, videos_attributes: [:title, :caption, :summary, :video_url, :thumbnail_url, :slug, :topic_id])
-            end
-
-            def options
-                @options ||= { include: %i[videos]}
             end
         end
     end

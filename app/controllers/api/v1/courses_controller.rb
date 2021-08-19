@@ -10,13 +10,13 @@ module Api
             end
 
             def show
-                render json: CourseSerializer.new(@course, options).serialized_json
+                render json: CourseSerializer.new(@course).serialized_json
             end
 
             def create
                 @course = Course.new(course_params)
                 if @course.save
-                    render json: CourseSerializer.new(@course, options).serialized_json
+                    render json: CourseSerializer.new(@course).serialized_json
                 else 
                     render json: { error: @course.errors.messages }, status: 422
                 end
@@ -24,7 +24,7 @@ module Api
 
             def update
                 if @course.update(course_params)
-                    render json: CourseSerializer.new(@course, options).serialized_json
+                    render json: CourseSerializer.new(@course).serialized_json
                 else 
                     render json: { error: @course.errors.messages }, status: 422
                 end
@@ -46,10 +46,6 @@ module Api
 
             def course_params
                 params.require(:course).permit(:title, :summary, :category, topics_attributes: [:title, :summary, :slug, :course_id])
-            end
-
-            def options
-                @options ||= { include: %i[topics]}
             end
         end
     end
