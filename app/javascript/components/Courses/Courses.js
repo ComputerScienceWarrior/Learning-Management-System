@@ -1,5 +1,5 @@
 // Course index page
-import React, {useState, useEffect, Fragment}from 'react'
+import React, {useState, useEffect}from 'react'
 import axios from 'axios'
 
 const Courses = () => {
@@ -20,12 +20,12 @@ const Courses = () => {
         return (<li key={item.id}>{item.title}</li>)
     })
     return (
-        <Fragment>
-            <div>
+        <section className="all-courses">
+            <header>
                 This is the Courses#index page
-            </div>
+            </header>
             <ul>{list}</ul>
-        </Fragment>
+        </section>
     )
 }
 
