@@ -6,17 +6,17 @@ module Api
 
             def index
                 @courses = Course.all
-                render json: CourseSerializer.new(@courses).serialized_json
+                render json: @courses, include: :topics
             end
 
             def show
-                render json: CourseSerializer.new(@course).serialized_json
+                render json: @course, include: :topics
             end
 
             def create
                 @course = Course.new(course_params)
                 if @course.save
-                    render json: CourseSerializer.new(@course).serialized_json
+                    render json: @course, include: :topics
                 else 
                     render json: { error: @course.errors.messages }, status: 422
                 end
@@ -24,7 +24,7 @@ module Api
 
             def update
                 if @course.update(course_params)
-                    render json: CourseSerializer.new(@course).serialized_json
+                    render json: @course, include: :topics
                 else 
                     render json: { error: @course.errors.messages }, status: 422
                 end
