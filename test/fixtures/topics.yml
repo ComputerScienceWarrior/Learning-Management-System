@@ -3,9 +3,9 @@
 one:
   title: MyText
   summary: MyText
-  course_id: 1
+  course: one
 
 two:
   title: MyText
   summary: MyText
-  course_id: 1
+  course: two

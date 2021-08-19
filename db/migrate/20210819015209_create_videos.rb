@@ -6,6 +6,7 @@ class CreateVideos < ActiveRecord::Migration[6.0]
       t.text :summary
       t.text :video_url
       t.text :thumbnail_url
+      t.belongs_to :topic, null: false, foreign_key: true
 
       t.timestamps
     end
