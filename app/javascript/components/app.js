@@ -6,7 +6,7 @@ import Course from './Course/Course'
 const App = () => {
     return (
         <Switch>
-            <Route exact path="/courses" component={Courses}/>
+            <Route exact path="/" component={Courses}/>
             <Route exact path="courses/:id/" component={Course}/>
         </Switch>
     )
