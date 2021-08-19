@@ -23,7 +23,7 @@ module Api
             end
 
             def update
-                if @course.update
+                if @course.update(course_params)
                     render json: CourseSerializer.new(@course).serialized_json
                 else 
                     render json: { error: @course.errors.messages }, status: 422
