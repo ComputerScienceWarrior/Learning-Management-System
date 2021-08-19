@@ -1,4 +1,5 @@
 // Course show page
+import React from 'react'
 
 const Course = () => {
     return (
