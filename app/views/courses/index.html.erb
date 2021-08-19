@@ -1,9 +1,0 @@
-<section id="courses-container">
-<% @courses.all.each do |course| %>
-    <div class="course-card">
-        <label id="title-label">Title: </label><%= link_to course.title, course_path(course) %><br/><br/>
-        <label id="summary-label">Summary:</label><br/><section id="summary"><%= course.summary %></section><br/><br/>
-        <label id="category-label">Category: </label><%= course.category %><br/><br/>
-    </div>
-<% end %>
-</section>
