@@ -1,6 +1,7 @@
 module Api
     module V1
         class TopicsController < ApplicationController
+            protect_from_forgery with: :null_session
             before_action :find_topic, only: [:show, :update, :destroy]
 
             def index

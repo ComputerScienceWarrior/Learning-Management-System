@@ -1,6 +1,7 @@
 module Api
     module V1
         class CoursesController < ApplicationController
+            protect_from_forgery with: :null_session
             before_action :find_course, only: [:show, :update, :destroy]
 
             def index

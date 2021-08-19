@@ -1,6 +1,7 @@
 module Api
     module V1
         class VideosController < ApplicationController
+            protect_from_forgery with: :null_session
             before_action :find_video, only: [:show, :update, :destroy]
 
             def index
