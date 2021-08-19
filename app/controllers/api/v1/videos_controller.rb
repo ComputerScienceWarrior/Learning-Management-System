@@ -6,17 +6,17 @@ module Api
 
             def index
                 @videos = Video.all
-                render json: VideoSerializer.new(@videos).serialized_json
+                render json: @videos
             end
 
             def show
-                render json: VideoSerializer.new(@video).serialized_json
+                render json: @video
             end
 
             def create
                 @video = Video.new(video_params)
                 if @video.save
-                    render json: VideoSerializer.new(@video).serialized_json
+                    render json: @video
                 else 
                     render json: { error: @video.errors.messages }, status: 422
                 end
@@ -24,7 +24,7 @@ module Api
 
             def update
                 if @video.update
-                    render json: VideoSerializer.new(@video).serialized_json
+                    render json: @video
                 else 
                     render json: { error: @video.errors.messages }, status: 422
                 end
