@@ -6,17 +6,17 @@ module Api
 
             def index
                 @topics = Topic.all
-                render json: TopicSerializer.new(@topics).serialized_json
+                render json: @topics, include: :videos
             end
 
             def show
-                render json: TopicSerializer.new(@topic).serialized_json
+                render json: @topics, include: :videos
             end
 
             def create
                 @topic = Topic.new(topic_params)
                 if @topic.save
-                    render json: TopicSerializer.new(@topic).serialized_json
+                    render json: @topics, include: :videos
                 else 
                     render json: { error: @topic.errors.messages }, status: 422
                 end
@@ -24,7 +24,7 @@ module Api
 
             def update
                 if @topic.update
-                    render json: TopicSerializer.new(@topic).serialized_json
+                    render json: @topics, include: :videos
                 else 
                     render json: { error: @topic.errors.messages }, status: 422
                 end
