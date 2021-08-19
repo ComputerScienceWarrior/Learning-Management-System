@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Any incorrect path with route to main page
     <Router>
-      <Route path="/" component={App}></Route>
+      <Route path="/" component={App}/>
     </Router>,
     document.body.appendChild(document.createElement('div')),
   )
