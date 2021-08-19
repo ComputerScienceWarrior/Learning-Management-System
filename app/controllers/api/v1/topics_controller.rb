@@ -44,7 +44,7 @@ module Api
             end
 
             def topic_params
-                params.require(:topic).permit(:title, :summary, :course_id, :slug)
+                params.require(:topic).permit(:title, :summary, :course_id, :slug, videos_attributes: [:title, :caption, :summary, :video_url, :thumbnail_url, :slug, :topic_id])
             end
         end
     end
