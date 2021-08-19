@@ -1,8 +1,0 @@
-Topic title: <%= @topic.title %><br/><br/>
-Topic's course: <%= link_to @course.title, course_path(@course) %><br/><br/>
-Topic Summary: <%= @topic.summary %><br/><br/>
-Topic Videos: <br/>
-<% @topic.videos.all.each do |topic_video| %>
-    <%= link_to topic_video.title, topic_video_path(@topic, topic_video)%><br/><br/>
-<% end %>
-
