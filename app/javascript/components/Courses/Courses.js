@@ -1,6 +1,7 @@
 // Course index page
 import React, {useState, useEffect}from 'react'
 import axios from 'axios'
+import Course from './Course'
 
 const Courses = () => {
 
@@ -17,7 +18,13 @@ const Courses = () => {
     }, [courses.length])
 
     const list = courses.map (item =>{
-        return (<li key={item.id}>{item.title}</li>)
+        return (
+            <Course 
+                title={item.title}
+                summary={item.summary}
+                category={item.category}
+            />
+        )
     })
     return (
         <section className="all-courses">
